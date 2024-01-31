@@ -82,6 +82,10 @@ DRIVERINCS		=	ntv2_common.h \
 obj-m			:= $(DRIVERTARGET)
 $(DRIVERNAME)-y	:= $(DRIVEROBJS)
 
+# Override Compiler Flags
+KBUILD_CFLAGS := $(filter-out -ftrivial-auto-var-init=zero,$(KBUILD_CFLAGS))
+
+
 .PHONY: default
 default: all 
 	$(MAKE) -C $(KDIR) M=$(DRIVERDIR) DRIVERDIR=$(DRIVERDIR) modules
