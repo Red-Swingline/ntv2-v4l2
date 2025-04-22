@@ -1,1 +1,1 @@
-savedcmd_/home/sthacher/pesa/ntv2-v4l2/driver/Module.symvers :=  scripts/mod/modpost -m -a      -o /home/sthacher/pesa/ntv2-v4l2/driver/Module.symvers -T /home/sthacher/pesa/ntv2-v4l2/driver/modules.order -i Module.symvers -e 
+savedcmd_/mnt/stuff/ntv2-v4l2/driver/Module.symvers :=  scripts/mod/modpost -M -m -a      -o /mnt/stuff/ntv2-v4l2/driver/Module.symvers -T /mnt/stuff/ntv2-v4l2/driver/modules.order -i Module.symvers -e 

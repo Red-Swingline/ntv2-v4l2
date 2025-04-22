@@ -20,7 +20,7 @@
 #include "ntv2_video.h"
 #include "ntv2_vb2ops.h"
 #include "ntv2_v4l2ops.h"
-
+#include <linux/version.h>
 #ifdef NTV2_USE_VB2_DMA_SG
 #include <media/videobuf2-dma-sg.h>
 #else
