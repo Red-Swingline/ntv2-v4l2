@@ -46,12 +46,12 @@ static int ntv2_mixops_info_source_control(struct snd_kcontrol *kcontrol,
 											 info->value.enumerated.item);
 
 	if (config != NULL) {
-		strlcpy(info->value.enumerated.name, config->name, sizeof(info->value.enumerated.name));
+		strscpy(info->value.enumerated.name, config->name, sizeof(info->value.enumerated.name));
 		NTV2_MSG_AUDIO_STATE("%s: enumerate audio item %d - %s\n",
 							 ntv2_aud->name, (int)info->value.enumerated.item, config->name);
 	}
 	else {
-		strlcpy(info->value.enumerated.name, "bad source", sizeof(info->value.enumerated.name));
+		strscpy(info->value.enumerated.name, "bad source", sizeof(info->value.enumerated.name));
 		NTV2_MSG_AUDIO_ERROR("%s: *error* enumerate bad source\n",
 							 ntv2_aud->name);
 	}

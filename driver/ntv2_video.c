@@ -173,7 +173,7 @@ int ntv2_video_configure(struct ntv2_video *ntv2_vid,
 
 	/* initialize the video_device */
 	video_dev = &ntv2_vid->video_dev;
-	strlcpy(video_dev->name, NTV2_MODULE_NAME, sizeof(video_dev->name));
+	strscpy(video_dev->name, NTV2_MODULE_NAME, sizeof(video_dev->name));
 	video_set_drvdata(video_dev, ntv2_vid);
 #ifdef NTV2_USE_V4L2_FH
 	set_bit(V4L2_FL_USES_V4L2_FH, &video_dev->flags);

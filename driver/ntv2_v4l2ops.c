@@ -32,7 +32,7 @@ static int ntv2_querycap(struct file *file,
 {
 	struct ntv2_video *ntv2_vid = video_drvdata(file);
 
-	strlcpy(cap->driver, ntv2_module_info()->name, sizeof(cap->driver));
+	strscpy(cap->driver, ntv2_module_info()->name, sizeof(cap->driver));
 //	strlcpy(cap->card, ntv2_vid->features->device_name, sizeof(cap->card));
 	snprintf(cap->card, sizeof(cap->card),
 			 "%s Channel %d", ntv2_vid->features->device_name, ntv2_vid->index + 1);
@@ -275,7 +275,7 @@ static int ntv2_enum_fmt_vid_cap(struct file *file,
 		return -EINVAL;
 	}
 
-	strlcpy(format->description, pixf->name, sizeof(format->description));
+	strscpy(format->description, pixf->name, sizeof(format->description));
 	format->type = V4L2_BUF_TYPE_VIDEO_CAPTURE;
 	format->flags = 0;
 	format->pixelformat = pixf->v4l2_pixel_format;
@@ -627,7 +627,7 @@ static int ntv2_enum_input(struct file *file,
 	input->type = V4L2_INPUT_TYPE_CAMERA;
 	input->std = 0;
 	input->status = 0;
-	strlcpy(input->name, config->name, sizeof(input->name));
+	strscpy(input->name, config->name, sizeof(input->name));
 	input->capabilities = V4L2_IN_CAP_DV_TIMINGS;
 
 	/* compliance claims obsolete */

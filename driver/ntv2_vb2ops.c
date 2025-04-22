@@ -402,7 +402,9 @@ int ntv2_vb2ops_configure(struct ntv2_video *ntv2_vid)
 #endif
 #ifdef NTV2_USE_VB2_TIMESTAMP_FLAGS
 	que->timestamp_flags = V4L2_BUF_FLAG_TIMESTAMP_MONOTONIC;
+	#if LINUX_VERSION_CODE < KERNEL_VERSION(6, 6, 0)
 	que->min_buffers_needed = 2;
+	#endif
 #else
 	que->timestamp_type = V4L2_BUF_FLAG_TIMESTAMP_MONOTONIC;
 #endif
